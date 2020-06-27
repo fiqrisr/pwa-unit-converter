@@ -1,0 +1,78 @@
+/* @media (max-width: 600px) {
+    #logo-container {
+        font-size: medium;
+    }
+} */
+
+@font-face {
+    font-family: 'Rancho';
+    src: url(../fonts/Rancho-Regular.ttf);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: unset;
+    height: 100vh;
+}
+
+nav {
+    position: relative;
+    z-index: 100;
+}
+
+#app-main {
+    height: 100%;
+}
+
+#app-main > .row {
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.brand-logo {
+    font-family: 'Rancho', sans-serif;
+    padding: 0px;
+    white-space: nowrap;
+}
+
+.sidenav {
+    padding-top: 20px;
+    width: 250px;
+    height: 100%;
+}
+
+@media (min-width: 992px) {
+    .sidenav-container {
+        padding-left: 0 !important;
+        height: 100%;
+    }
+
+    .sidenav {
+        position: relative;
+        z-index: 99;
+        transform: translateX(0%) !important;
+    }
+}
+
+.content {
+    margin: auto;
+    width: 600px;
+    padding-top: 40px;
+}
+
+.card-content {
+    position: relative;
+}
+
+.card-title {
+    margin: 0px !important;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.card-button {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PWA Unit Converter</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-wrapper container">
+                    <a href="#" data-target="slide-out" class="sidenav-trigger"
+                        ><i class="material-icons">menu</i></a
+                    >
+                    <a href="#" id="logo-container" class="brand-logo center">
+                        PWA Unit Converter
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <main id="app-main">
+            <div class="row">
+                <div class="col sidenav-container">
+                    <ul id="slide-out" class="sidenav">
+                        <li><a class="waves-effect" href="#length">Length</a></li>
+                        <li><a class="waves-effect" href="#area">Area</a></li>
+                        <li><a class="waves-effect" href="#mass">Mass</a></li>
+                        <li><a class="waves-effect" href="#volume">Volume</a></li>
+                        <li><a class="waves-effect" href="#temperature">Temperature</a></li>
+                    </ul>
+                </div>
+                <div class="col container">
+                    <div class="content" id="content"></div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
