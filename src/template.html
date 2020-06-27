@@ -7,12 +7,12 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     </head>
     <body>
-        <header>
+        <header class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper container">
-                    <a href="#" data-target="slide-out" class="sidenav-trigger"
-                        ><i class="material-icons">menu</i></a
-                    >
+                    <a href="#" data-target="slide-out" class="sidenav-trigger">
+                        <i class="material-icons">menu</i>
+                    </a>
                     <a href="#" id="logo-container" class="brand-logo center">
                         PWA Unit Converter
                     </a>
@@ -21,19 +21,40 @@
         </header>
 
         <main id="app-main">
-            <div class="row">
-                <div class="col sidenav-container">
-                    <ul id="slide-out" class="sidenav">
-                        <li><a class="waves-effect" href="#length">Length</a></li>
-                        <li><a class="waves-effect" href="#area">Area</a></li>
-                        <li><a class="waves-effect" href="#mass">Mass</a></li>
-                        <li><a class="waves-effect" href="#volume">Volume</a></li>
-                        <li><a class="waves-effect" href="#temperature">Temperature</a></li>
-                    </ul>
-                </div>
-                <div class="col container">
-                    <div class="content" id="content"></div>
-                </div>
+            <div class="sidenav-container">
+                <ul id="slide-out" class="sidenav">
+                    <li>
+                        <a class="waves-effect" href="#"><i class="material-icons">home</i>Home</a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#length">
+                            <i class="material-icons">straighten </i>Length
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#area">
+                            <i class="material-icons">square_foot</i>Area
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#mass">
+                            <i class="material-icons">fitness_center</i>Mass
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#volume">
+                            <i class="material-icons">opacity</i>Volume
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#temperature">
+                            <i class="material-icons">ac_unit</i>Temperature
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-wrapper">
+                <div class="content" id="content"></div>
             </div>
         </main>
     </body>

@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: unset;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 nav {
@@ -36,6 +36,11 @@ nav {
     white-space: nowrap;
 }
 
+.sidenav-trigger {
+    margin: 0 !important;
+    margin-left: 10px !important;
+}
+
 .sidenav {
     padding-top: 20px;
     width: 250px;
@@ -45,20 +50,44 @@ nav {
 @media (min-width: 992px) {
     .sidenav-container {
         padding-left: 0 !important;
-        height: 100%;
     }
 
     .sidenav {
-        position: relative;
+        padding-top: 80px;
+        position: fixed;
         z-index: 99;
         transform: translateX(0%) !important;
     }
 }
 
+.content-wrapper {
+    margin-left: 250px;
+}
+
+@media (max-width: 992px) {
+    .content-wrapper {
+        margin-left: 0;
+    }
+}
+
+/* @media (max-width: 992px) {
+    .content-wrapper {
+        width: 100%;
+    }
+} */
+
+#home-content .card {
+    cursor: pointer;
+}
+
 .content {
     margin: auto;
-    width: 600px;
-    padding-top: 40px;
+    max-width: 1000px;
+    padding: 40px;
+}
+
+.content-title {
+    padding-bottom: 40px;
 }
 
 .card-content {
@@ -75,4 +104,8 @@ nav {
     top: 50%;
     right: 24px;
     transform: translate(-50%, -50%);
+}
+
+.prefix {
+    font-size: 16px !important;
 }
