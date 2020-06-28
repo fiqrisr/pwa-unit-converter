@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
     elements.sidenavLink.forEach((elm) => {
         elm.addEventListener('click', (event) => {
             M.Sidenav.getInstance(elements.sidenav).close();
-
             loadPage(event.target.getAttribute('href').substr(1));
         });
     });
@@ -27,8 +26,13 @@ const loadPage = (page) => {
         .then((html) => {
             elements.content.innerHTML = html;
 
-            window.inputList = document.querySelectorAll('input');
-            convertInput(window.inputList);
+            if (page === 'home') {
+                window.homeCardLink = document.querySelectorAll('.card');
+                homeController(window.homeCardLink);
+            } else {
+                window.inputList = document.querySelectorAll('input');
+                convertInput(window.inputList);
+            }
 
             elements.sidenavList.forEach((elm) => {
                 if (elm.querySelector('a').getAttribute('href').substr(1) === page)
@@ -36,6 +40,12 @@ const loadPage = (page) => {
                 else elm.classList.remove('active');
             });
         });
+};
+
+const homeController = (cardList) => {
+    cardList.forEach((elm) => {
+        elm.addEventListener('click', (e) => loadPage(elm.dataset.link.substr(1)));
+    });
 };
 
 loadPage(window.location.hash.substr(1));
