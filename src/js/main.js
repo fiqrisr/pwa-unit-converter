@@ -1,10 +1,10 @@
+import { convertInput } from './converter.js';
+
 const elements = {
     content: document.querySelector('#content'),
     sidenav: document.querySelector('.sidenav'),
     sidenavList: document.querySelectorAll('.sidenav li'),
     sidenavLink: document.querySelectorAll('.sidenav a'),
-    buttonCard: document.querySelectorAll('#home-content .card'),
-    inputList: document.querySelectorAll('input'),
 };
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     elements.sidenavLink.forEach((elm) => {
         elm.addEventListener('click', (event) => {
             M.Sidenav.getInstance(elements.sidenav).close();
-            page = event.target.getAttribute('href').substr(1);
-            loadPage(page);
+
+            loadPage(event.target.getAttribute('href').substr(1));
         });
     });
 });
@@ -26,7 +26,9 @@ const loadPage = (page) => {
         .then((response) => response.text())
         .then((html) => {
             elements.content.innerHTML = html;
-            elements.inputList = document.querySelectorAll('input');
+
+            window.inputList = document.querySelectorAll('input');
+            convertInput(window.inputList);
 
             elements.sidenavList.forEach((elm) => {
                 if (elm.querySelector('a').getAttribute('href').substr(1) === page)
