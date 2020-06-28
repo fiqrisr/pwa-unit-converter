@@ -1,13 +1,14 @@
-elements = {
+const elements = {
     content: document.querySelector('#content'),
     sidenav: document.querySelector('.sidenav'),
+    sidenavList: document.querySelectorAll('.sidenav li'),
     sidenavLink: document.querySelectorAll('.sidenav a'),
     buttonCard: document.querySelectorAll('#home-content .card'),
+    inputList: document.querySelectorAll('input'),
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(elems);
+    M.Sidenav.init(elements.sidenav);
 
     elements.sidenavLink.forEach((elm) => {
         elm.addEventListener('click', (event) => {
@@ -25,6 +26,13 @@ const loadPage = (page) => {
         .then((response) => response.text())
         .then((html) => {
             elements.content.innerHTML = html;
+            elements.inputList = document.querySelectorAll('input');
+
+            elements.sidenavList.forEach((elm) => {
+                if (elm.querySelector('a').getAttribute('href').substr(1) === page)
+                    elm.classList.add('active');
+                else elm.classList.remove('active');
+            });
         });
 };
 
