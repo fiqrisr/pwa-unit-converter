@@ -1,11 +1,14 @@
-const cacheName = 'dev-v1';
+const CACHE_NAME = 'dev-v1';
 const precacheResources = [
     '/',
     '/index.html',
     '/style.css',
     '/main.js',
     '/fonts/3570bfe74a87405d74f3065d07cf3aea.ttf',
+    '/images/convert-units.png',
+    '/images/materialize.png',
     '/pages/area.html',
+    '/pages/about.html',
     '/pages/home.html',
     '/pages/length.html',
     '/pages/mass.html',
@@ -14,20 +17,28 @@ const precacheResources = [
 ];
 
 self.addEventListener('install', (event) => {
-    console.log('Service worker install event');
     event.waitUntil(
-        caches.open(cacheName).then((cache) => {
+        caches.open(CACHE_NAME).then((cache) => {
             return cache.addAll(precacheResources);
         })
     );
 });
 
 self.addEventListener('activate', (event) => {
-    console.log('Service worker active event');
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cacheName) => {
+                    if (cacheName != CACHE_NAME) {
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
+    );
 });
 
 self.addEventListener('fetch', (event) => {
-    console.log('Fetch intercepted for:', event.request.url);
     event.respondWith(
         caches.match(event.request).then((cachedRespond) => {
             if (cachedRespond) return cachedRespond;
