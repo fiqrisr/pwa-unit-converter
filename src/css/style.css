@@ -18,15 +18,10 @@ body {
 
 nav {
     position: relative;
-    z-index: 100;
+    z-index: 50;
 }
 
 #app-main {
-    height: 100%;
-}
-
-#app-main > .row {
-    margin-bottom: 0;
     height: 100%;
 }
 
@@ -69,12 +64,6 @@ nav {
         margin-left: 0;
     }
 }
-
-/* @media (max-width: 992px) {
-    .content-wrapper {
-        width: 100%;
-    }
-} */
 
 #home-content .card {
     cursor: pointer;

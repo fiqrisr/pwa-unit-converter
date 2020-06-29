@@ -31,8 +31,8 @@ module.exports = merge(common, {
     plugins: [
         new CleanWebpackPlugin(),
         new OptimizeCssAssetsPlugin(),
-        new PurgecssPlugin({
-            paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-        }),
+        // new PurgecssPlugin({
+        //     paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+        // }),
     ],
 });
