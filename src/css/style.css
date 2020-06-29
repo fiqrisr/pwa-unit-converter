@@ -74,6 +74,11 @@ nav {
     font-size: 3rem;
 }
 
+.content-sub {
+    padding-bottom: 20px;
+    font-size: 2rem;
+}
+
 .card-content {
     position: relative;
 }
